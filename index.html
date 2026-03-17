@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<body>
+
+<header>
+    <h1>Politécnico Luis Medrano González</h1>
+    <p>Portal Educativo Institucional</p>
+</header>
+
+<nav>
+    <button onclick="mostrarSeccion('inicio')">Inicio</button>
+    <button onclick="mostrarSeccion('oferta')">Oferta Formativa</button>
+    <button onclick="mostrarSeccion('noticias')">Noticias</button>
+    <button onclick="mostrarSeccion('contacto')">Contacto</button>
+</nav>
+
+<section id="inicio" class="active">
+    <h2>Bienvenidos</h2>
+    <p>Este portal brinda información institucional, académica y tecnológica del centro educativo.</p>
+</section>
+
+<section id="oferta">
+    <h2>Oferta Formativa</h2>
+    <div class="card">
+        <h3>Informática y Comunicaciones</h3>
+        <p>BACHILLERATO TÉCNICO EN DESARROLLO Y ADMINISTRACIÓN DE APLICACIONES
+INFORMÁTICAS.</p>
+    </div>
+    <div class="card">
+        <h3>Famila Agraria</h3>
+        <p>BACHILLERATO TÉCNICO EN AGROPECUARIA.</p>
+    </div>
+</section>
+
+<section id="noticias">
+    <h2>Noticias (Actualización dinámica)</h2>
+    <div id="contenedorNoticias"></div>
+</section>
+
+<section id="contacto">
+    <h2>Contactos:</h2>
+    <p>Email: info@politecnico.edu.do</p>
+    <p>Teléfono: (809) 524-0631</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Politécnico Luis Medrano González</p>
+    <p>&copy;Elaborado por el Docente Lic. Raudin Urbaez Batista, como practica de ejemplo para estudiantes de 4to Inf. 2025-2026</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    function mostrarSeccion(id) {
+        let secciones = document.querySelectorAll('section');
+        secciones.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    // Simulación de noticias dinámicas (puedes conectar a API real)
+    const noticias = [
+        "Feria STEAM 2026 realizada con éxito.",
+        "Estudiantes participan en proyectos tecnológicos.",
+        "Nueva actualización curricular disponible.",
+    ];
+
+    function cargarNoticias() {
+        let contenedor = document.getElementById('contenedorNoticias');
+        contenedor.innerHTML = "";
+
+        noticias.forEach(noticia => {
+            let div = document.createElement('div');
+            div.className = 'card';
+            div.innerText = noticia;
+            contenedor.appendChild(div);
+        });
+    }
+
+    cargarNoticias();
+
+    // Ejemplo de conexión futura con MINERD (API simulada)
+    async function cargarDatosMinisterio() {
+        try {
+            // Simulación (reemplazar con API real)
+            console.log("Conectando con Ministerio de Educación...");
+        } catch (error) {
+            console.error("Error al cargar datos", error);
+        }
+    }
+
+    cargarDatosMinisterio();
+</script>
+
+</body>
+</html>
